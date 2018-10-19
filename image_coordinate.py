@@ -11,9 +11,10 @@ def im_trim (img): #함수로 만든다
     return img_trim #필요에 따라 결과물을 리턴
 
 if __name__ == '__main__':
-    files = glob.glob('templates/*.jpg') #templates 폴더안에 있는 jpg파일을 모두 읽음
+    files = glob.glob('*.jpg') #templates 폴더안에 있는 jpg파일을 모두 읽음
 
     for file in files:
         org_image = cv2.imread(file) #test.jpg 라는 파일을 읽어온다
         trim_image = im_trim(org_image) #trim_image 변수에 결과물을 넣는다
-        cv2.imwrite('test/_org_trim.png',trim_image) #자른 이미지를 저장한다
+        filename_ = file
+        cv2.imwrite('test/'+file,trim_image) #자른 이미지를 저장한다
